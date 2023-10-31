@@ -6,6 +6,11 @@ sources:
     description: greenweez raw data source
     tables:
       - name: sales
+        freshness: 
+          warn_after:
+            count: 90
+            period: day
+        loaded_at_field: "CAST(date_date AS TIMESTAMP)"
         identifier: raw_gwz_sales
         description: sales of greenweez
         columns:
@@ -32,7 +37,7 @@ sources:
             description: primary key of the table
             tests:
               - unique
-              - not_null  
+              - not_null
           - name: shipping_fee
           - name: shipping_fee_1
           - name: logCost

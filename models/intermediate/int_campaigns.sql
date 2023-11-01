@@ -1,10 +1,10 @@
-select * from {{ source('raw', 'bing') }}
+select * from {{ ref('stg_raw__bing') }}
 UNION ALL 
 SELECT *
-FROM {{ source('raw','criteo') }}
+FROM {{ ref('stg_raw__criteo') }}
 UNION ALL
 SELECT * 
-FROM {{ source('raw','adwords') }}
+FROM {{ ref('stg_raw__adwords') }}
 UNION ALL
 SELECT * 
-FROM {{ source('raw','facebook') }}
+FROM {{ ref('stg_raw__facebook') }}

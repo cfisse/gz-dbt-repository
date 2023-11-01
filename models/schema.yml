@@ -95,6 +95,20 @@ sources:
           - name: ads_cost
           - name: impression
           - name: click
-        
-       
+models:
+  - name: int_campaigns_day
+    description: costs and results per days
+    columns:
+      - name: date_date
+        tests:
+          - not_null
+      - name: ads_cost
+        tests:
+          - not_null
+      - name: ads_impression
+        tests:
+          - not_null
+      - name: ads_click
+        tests:
+          - not_null
     

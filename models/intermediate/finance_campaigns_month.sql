@@ -1,9 +1,8 @@
 SELECT
-  f.date_date,
-  ROUND(f.operational_margin  - c.ads_cost,2) AS ads_margin,
-  f.average_basket,
-  c.ads_cost
-FROM {{ ref('finance_days') }} f
-LEFT JOIN {{ ref('int_campaigns_day') }} c 
-    USING(date_date)
-ORDER BY date_date desc
+  DATE_TRUNC(date_date, MONTH) AS month,
+  ROUND(SUM(ads_margin), 2) as ads_margin,
+  ROUND(SUM(average_basket), 2) as average_basket,
+  ROUND(SUM(ads_cost), 2) as ads_cost
+FROM {{ ref('finance_campaigns_day') }}
+GROUP BY month
+ORDER BY month DESC 

@@ -16,7 +16,7 @@ sources:
         columns:
           - name: date_date
           - name: orders_id
-          - name: pdt_id
+          - name: pdt_id AS products_id
           - name: revenue
           - name: quantity
       - name: product
